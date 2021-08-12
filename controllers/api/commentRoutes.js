@@ -1,13 +1,13 @@
 // Standard Requires
-const router = require('express').Router();
-const { comment } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Comment } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-// TODO: Add the logic to post the comment to the correct blog post. 
-router.post('/', withAuth, async (req, res) => {
+// TODO: Add the logic to post the comment to the correct blog post.
+router.post("/", withAuth, async (req, res) => {
   console.log(req.body);
   try {
-    const newComment = await comment.create({
+    const newComment = await Comment.create({
       ...req.body,
       user_id: req.session.user_id,
     });

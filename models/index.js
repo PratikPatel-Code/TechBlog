@@ -1,44 +1,44 @@
 // Standard require to bring all models
-const user = require("./user");
-const comment = require("./comment");
-const blogPost = require("./blogPost");
+const User = require("./User");
+const Comment = require("./Comment");
+const BlogPost = require("./BlogPost");
 
 // User has many posts
-user.hasMany(blogPost, {
+User.hasMany(BlogPost, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
 
 // Posts belong to user
-blogPost.belongsTo(user, {
+BlogPost.belongsTo(User, {
   foreignKey: "user_id",
 });
 
 // User has many comments
-user.hasMany(comment, {
+User.hasMany(Comment, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
 
 // Comments belongs to blogPost
-comment.belongsTo(blogPost, {
+Comment.belongsTo(BlogPost, {
   foreignKey: "blog_id",
   onDelete: "CASCADE",
 });
 
 // Posts have many comments
-blogPost.hasMany(comment, {
+BlogPost.hasMany(Comment, {
   foreignKey: "blog_id",
   onDelete: "CASCADE",
 });
 
 // Comment belongs to user
-comment.belongsTo(user, {
+Comment.belongsTo(User, {
   foreignKey: "user_id",
 });
 
 module.exports = {
-  blogPost,
-  comment,
-  user,
+  BlogPost,
+  Comment,
+  User,
 };

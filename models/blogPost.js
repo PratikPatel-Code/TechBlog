@@ -1,11 +1,11 @@
 // Standard Require
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class blogPost extends Model {}
+class BlogPost extends Model {}
 
-// Blog will have id, title, contents, date created, user id 
-blogPost.init(
+// Blog will have id, title, contents, date created, user id
+BlogPost.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -29,8 +29,8 @@ blogPost.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -39,8 +39,8 @@ blogPost.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blog',
+    modelName: "blog",
   }
 );
 
-module.exports = blogPost;
+module.exports = BlogPost;

@@ -1,19 +1,19 @@
 // All requires.
 const router = require("express").Router();
-const { blogPost, user, comment } = require("../models");
+const { BlogPost, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Route to get data into homepage template
 router.get("/", async (req, res) => {
   try {
-    const blogData = await blogPost.findAll({
+    const blogData = await BlogPost.findAll({
       include: [
         {
           model: User,
           attributes: ["name"],
         },
         {
-          model: comment,
+          model: Comment,
         },
       ],
     });
@@ -30,17 +30,17 @@ router.get("/", async (req, res) => {
 // Blog routes
 router.get("/blog/:id", async (req, res) => {
   try {
-    const blogData = await blogPost.findByPk(req.params.id, {
+    const blogData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
-          model: user,
+          model: User,
           attributes: ["name"],
         },
         {
-          model: comment,
+          model: Comment,
           include: [
             {
-              model: user,
+              model: User,
             },
           ],
         },
@@ -59,11 +59,11 @@ router.get("/blog/:id", async (req, res) => {
 // Session ID of the user
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    const userData = await user.findByPk(req.session.user_id, {
+    const userData = await User.findByPk(req.session.User_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: blogPost }, { model: comment }],
+      include: [{ model: BlogPost }, { model: Comment }],
     });
-    const user = userData.get({ plain: true });
+    const User = userData.get({ plain: true });
     res.render("profile", {
       ...user,
       logged_in: true,
