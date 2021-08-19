@@ -18,7 +18,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace(`/blog/${blog_id}`);
     } else {
-      alert(response.statusText);
+      alert("Error!!!");
     }
   }
 };
