@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert("Failed to create a new post");
+      alert("Error!!!");
     }
   }
 };
@@ -29,7 +29,7 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert("Error");
+      alert("Error!!!");
     }
   }
 };
@@ -43,8 +43,6 @@ const updateButtonHandler = async (event) => {
     const id = event.target.getAttribute("data-id");
     const title = document.querySelector(`#title-${id}`).value.trim();
     const contents = document.querySelector(`#blog-${id}`).value.trim();
-
-    console.log(event.target.id);
     const response = await fetch(`api/blogs/${id}`, {
       method: "PUT",
       body: JSON.stringify({ title, contents }),
