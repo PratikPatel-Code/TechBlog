@@ -1,17 +1,14 @@
 [
     {
         "title": "Test Blog 1",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "user_id": 1
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
         "title": "Test Blog 2",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "user_id": 2
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
         "title": "Test Blog 3",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "user_id": 3
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
 ]
