@@ -3,7 +3,7 @@ const router = require("express").Router();
 const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// TODO: Add the logic to post the comment to the correct blog post.
+// Used class activities as boiler plate from the commentsRoutes
 router.post("/", withAuth, async (req, res) => {
   console.log(req.body);
   try {
