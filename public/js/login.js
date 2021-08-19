@@ -1,4 +1,5 @@
 // Logging In using Form Handler
+// Added preventDefault to all functions, fixing reload problem
 const loginFormHandler = async (event) => {
   event.preventDefault();
   const email = document.querySelector("#email-login").value.trim();
